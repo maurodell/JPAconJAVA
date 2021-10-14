@@ -51,4 +51,18 @@ public class ProfesorServicio {
         
         return _auxProfesor;
     }
+    public void imprimirProfesores(){
+        try {
+            em.getTransaction().begin();
+        
+            List<Profesor> _auxProfesor = em.createQuery("SELECT c FROM Profesor c")
+                .getResultList();
+            for (Profesor profesor : _auxProfesor) {
+            System.out.println(profesor);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
 }

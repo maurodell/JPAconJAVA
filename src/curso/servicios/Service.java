@@ -15,6 +15,7 @@ public class Service {
             Scanner teclado = new Scanner(System.in).useDelimiter("\n");
         
             AlumnoServicio serviceAlumno = new AlumnoServicio();
+            ProfesorServicio servicioProfesor = new ProfesorServicio();
             
 public void menuAlumno(){
             while(true){
@@ -66,6 +67,59 @@ public void menuAlumno(){
                     System.exit(0);
             }
         }
-    }      
+    }
+public void menuProfesor(){
+            while(true){
+            System.out.println("Que quiere hacer?\n"
+                            + "1. Crear Profesor\n"
+                            + "2. Editar Profesor\n"
+                            + "3. Eliminar Profesor\n"
+                            + "4. Mostrar Listado Completo\n"
+                            + "5. SALIR");
+            int option = teclado.nextInt();
+            
+            switch(option){
+                case 1:
+                    System.out.print("Ingrese el documento del Profesor: ");
+                    Integer documento = teclado.nextInt();
+                    System.out.print("Ingrese el nombre: ");
+                    String nombre = teclado.next();
+                    System.out.print("Ingrese el apellido: ");
+                    String apellido = teclado.next();
+                    System.out.print("Ingrese la telefono: ");
+                    Integer telefono = teclado.nextInt();
+                    System.out.print("Ingrese la sueldo: ");
+                    Integer sueldo = teclado.nextInt();
+                    
+                    servicioProfesor.crearProfesor(documento, nombre, apellido, telefono, sueldo);
+                    break;
+                case 2:
+                    System.out.print("Ingrese el documento del Profesor a Editar: ");
+                    Integer doc_buscar = teclado.nextInt();
+                    System.out.print("Ingrese el nombre a Modificar: ");
+                    String nombre_mod = teclado.next();
+                    System.out.print("Ingrese el apellido a Modificar: ");
+                    String apellido_mod = teclado.next();
+                    System.out.print("Ingrese el telefono a Modificar: ");
+                    Integer telefono_mod = teclado.nextInt();
+                    System.out.println("Ingrese el sueldo a Modificar");
+                    Integer sueldo_mod = teclado.nextInt();
+                    
+                    servicioProfesor.modificarProfesor(doc_buscar, nombre_mod, apellido_mod, telefono_mod, sueldo_mod);
+                    break;
+                case 3:
+                    System.out.print("Ingrese el documento del Profesor a Eliminar: ");
+                    Integer doc_eliminar = teclado.nextInt();
+                    servicioProfesor.borrarProfesor(doc_eliminar);
+                    break;
+                case 4:
+                    System.out.println("Lista completa Alumnos: ");
+                    servicioProfesor.imprimirProfesores();
+                    break;
+                case 5:
+                    System.exit(0);
+            }
+        }
+    } 
  
 }
