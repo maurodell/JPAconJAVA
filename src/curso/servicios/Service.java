@@ -18,7 +18,8 @@ public class Service {
             ProfesorServicio servicioProfesor = new ProfesorServicio();
             
 public void menuAlumno(){
-            while(true){
+            boolean flag = false;
+            while(!flag){
             System.out.println("Que quiere hacer?\n"
                             + "1. Crear Alumno\n"
                             + "2. Editar Alumno\n"
@@ -64,12 +65,14 @@ public void menuAlumno(){
                     serviceAlumno.imprimirAlumosNombre(nom_mostrar);
                     break;
                 case 6:
-                    System.exit(0);
+                    flag = true;
+                    break;
             }
         }
     }
 public void menuProfesor(){
-            while(true){
+            boolean flag = false;
+            while(!flag){
             System.out.println("Que quiere hacer?\n"
                             + "1. Crear Profesor\n"
                             + "2. Editar Profesor\n"
@@ -117,7 +120,8 @@ public void menuProfesor(){
                     servicioProfesor.imprimirProfesores();
                     break;
                 case 5:
-                    System.exit(0);
+                    flag=true;
+                    break;
             }
         }
     } 
